@@ -28,7 +28,7 @@ def roof(hh, width, height, color):
   t.left(90)
   t.forward(hh)
   t.fillcolor(color)
-  t.begin_fill
+  t.begin_fill()
   t.right(90)
   t.forward(width)
   t.right(angle2)
@@ -38,10 +38,31 @@ def roof(hh, width, height, color):
   t.forward(hyp)
   t.end_fill()
   t.up()
-  #This is wrong, find the right angle to bring back to the start
-  t.left(angle2)
+  t.right(180)
+  t.right(angle2)
+  t.right(90)
   t.forward(hh)
   t.left(90)
+def door(hw, width, height, color):
+  distance = (hw - width) / 2
+  t.up()
+  t.forward(distance)
+  t.left(90)
+  t.fillcolor(color)
+  t.down()
+  t.begin_fill()
+  t.forward(height)
+  t.right(90)
+  t.forward(width)
+  t.right(90)
+  t.forward(height)
+  t.up()
+  t.right(90)
+  t.forward(width)
+  t.end_fill()
+  t.forward(distance)
+  t.right(180)
+def chimney()
 def house():
   number = int(input("# of Houses: "))
   i = 0
@@ -82,6 +103,7 @@ def house():
     #Running the programs
     base(width, height, color)
     roof(height, width, rheight, rcolor)
+    door(width, dwidth, dheight, dcolor)
     #This is the end
     i += 1
 house()
