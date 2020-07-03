@@ -62,7 +62,31 @@ def door(hw, width, height, color):
   t.end_fill()
   t.forward(distance)
   t.right(180)
-def chimney()
+def chimney(hh, rh, leg, width, height1, color):
+  a = width * rh / leg
+  height2 = height1 - a
+  t.up()
+  t.left(90)
+  t.forward(hh)
+  t.down()
+  t.fillcolor(color)
+  t.begin_fill()
+  t.forward(height1)
+  t.right(90)
+  t.forward(width)
+  t.right(90)
+  t.forward(height2)
+  t.end_fill()
+  t.up()
+  t.backward(height2)
+  t.right(90)
+  t.forward(width)
+  t.left(90)
+  t.forward(height1)
+  t.forward(hh)
+  t.left(90)
+def circle(hh, ):
+
 def house():
   number = int(input("# of Houses: "))
   i = 0
@@ -70,10 +94,10 @@ def house():
   while i < number:
     #Here goes the program
     #Getting house parts.
-    chimney = input("Chimney (y/n): ")
-    circle = input("Attic Window (y/n): ")
-    square = input("House Window (y/n): ")
-    land = input("Front Land (y/n): ")
+    chimne = input("Chimney (y/n): ")
+    circl = input("Attic Window (y/n): ")
+    squar = input("House Window (y/n): ")
+    lan = input("Front Land (y/n): ")
     #Getting Variables
     width = int(input("House Width: "))
     height = int(input("House Height: "))
@@ -83,17 +107,17 @@ def house():
     dwidth = int(input("Door Width: "))
     dheight = int(input("Door Height: "))
     dcolor = input("Door Color: ")
-    if chimney == "y":
+    if chimne == "y":
       cwidth = int(input("Chimney Width: "))
       cheight = int(input("Chimney Height: "))
       ccolor = input("Chimney Color: ")
-    if circle == "y":
+    if circl == "y":
       wradius = int(input("Window Radius: "))
       wcolor = input("Window Color: ")
-    if square == "y":
+    if squar == "y":
       sside = int(input("Window Side: "))
       scolor = input("Window Color: ")
-    if land == "y":
+    if lan == "y":
       ldistance = int(input("Land Distance: "))
       lcolor = input("Land Color: ")
     t.backward(290)
@@ -104,6 +128,8 @@ def house():
     base(width, height, color)
     roof(height, width, rheight, rcolor)
     door(width, dwidth, dheight, dcolor)
+    if chimne == "y":
+      chimney(height, rheight, width/2, cwidth, cheight, ccolor)
     #This is the end
     i += 1
 house()
